@@ -1,0 +1,34 @@
+<div>
+        <h1>Products from server / Home</h1>
+</div>
+
+<table>
+        <thead>
+                <tr>
+                <td>Title</td>
+                <td>Id</td>
+                <td>Description</td>
+                <td>Price</td>
+                <td>Thumbnail</td>
+                <td>Code</td>
+                <td>Stock</td>
+                <td>Status</td>
+                <td>Category</td>
+                </tr>
+        </thead>
+        <tbody>
+                {{#each products}}
+                <tr>
+                <td>{{title}}</td>
+                <td>{{this.id}}</td>
+                <td>{{description}}</td>
+                <td>{{price}}</td>
+                <td>{{thumbnail}}</td>
+                <td>{{code}}</td>
+                <td>{{stock}}</td>
+                <td>{{status}}</td>
+                <td>{{category}}</td>
+                </tr>
+                {{/each}}
+        </tbody>
+</table>
