@@ -35,6 +35,8 @@ if (productsContainer) {
 }
 });
 
+//Agregar producto
+
 document.getElementById("addProduct").addEventListener("submit", (event) => {
     event.preventDefault();
 
@@ -47,6 +49,14 @@ document.getElementById("addProduct").addEventListener("submit", (event) => {
     const stock = document.getElementById("stock").value;
     const thumbnail = document.getElementById("thumbnail").value;
     const category = document.getElementById("category").value;
+
+//Validacion carga de producto
+
+    if(
+        !title || !id || !description || !price || !code || !status || !stock || !thumbnail || !category) {
+            console.error("All fields must be completed.");
+            return;
+        }
 
     socket.emit("newProduct", {
         title,
@@ -63,11 +73,19 @@ document.getElementById("addProduct").addEventListener("submit", (event) => {
     event.target.reset();
 });
 
+//Eliminar producto
+
 document.getElementById("deleteProduct").addEventListener("submit", (event) => {
     event.preventDefault();
 
-    //revisar si no es #id
     const deleteId = document.querySelector("#id").value;
+
+//Validacion de eliminacion de producto
+
+    if(!deleteId) {
+        console.error("The id was not indicater.");
+        return;
+    }
 
     socket.emit("deleteProduct", deleteId);
 
