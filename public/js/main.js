@@ -3,7 +3,6 @@ const socket = io();
 socket.on("products", (products) => {
     const productsContainer = document.getElementById("tableOfProducts");
 
-if (productsContainer) {
     productsContainer.innerHTML = `
     <tr>
         <th>TITLE</th>
@@ -32,7 +31,7 @@ if (productsContainer) {
         </tr>
         `
     })
-}
+
 });
 
 //Agregar producto
@@ -83,7 +82,7 @@ document.getElementById("deleteProduct").addEventListener("submit", (event) => {
 //Validacion de eliminacion de producto
 
     if(!deleteId) {
-        console.error("The id was not indicater.");
+        console.error("The id was not indicated.");
         return;
     }
 
